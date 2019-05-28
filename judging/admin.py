@@ -1,10 +1,12 @@
 from django.contrib import admin
+from django.conf.urls import url
 import csv, sys, os
 
 from .models import Judge
 from .forms import JudgeForm
 
-# controls /admin/judging/display
+# controls /admin/judging/judge
+@admin.register(Judge)
 class JudgeAdmin(admin.ModelAdmin):
     # override default form
     form = JudgeForm
@@ -13,7 +15,8 @@ class JudgeAdmin(admin.ModelAdmin):
     list_display = ('name', 'organization', 'job_title', 'email', 'username', 'sponsor_judge', 'checked_in')
     search_fields = ['user__first_name', 'user__last_name', 'organization', 'user__email']
 
-# add import from csv option
+# new endpoint to add csv import
+class JudgeUploadAdmin(admin.AdminSite):
+    site_header = 'Judge CSV Upload'
 
-
-admin.site.register(Judge, JudgeAdmin)
+judge_upload_site = JudgeUploadAdmin(name='csv-upload')
