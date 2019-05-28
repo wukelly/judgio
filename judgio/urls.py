@@ -21,7 +21,7 @@ from judging.admin import judge_upload_site
 urlpatterns = [
     path('admin/', admin.site.urls),
     # custom admin site
-    path('admin/judging/judge-csv-upload', judge_upload_site.urls),
+    path('admin/judging/judge-csv-upload/', judge_upload_site.urls),
     # login endpoint
     path('accounts/', include('django.contrib.auth.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
