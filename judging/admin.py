@@ -17,6 +17,9 @@ class JudgeAdmin(admin.ModelAdmin):
 
 # new endpoint to add csv import
 class JudgeUploadAdmin(admin.AdminSite):
-    site_header = 'Judge CSV Upload'
+    index_title = 'Judge CSV Upload'
+
+    # change template
+    index_template = 'admin/judge_upload.html'
 
 judge_upload_site = JudgeUploadAdmin(name='csv-upload')
