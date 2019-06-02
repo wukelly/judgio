@@ -1,0 +1,16 @@
+#navbar {
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: #dddddd;
+}
+
+.navbar-item{
+    padding: 0px 20px;
+}
+
+.navbar-item a{
+    color: #666666;
+}
