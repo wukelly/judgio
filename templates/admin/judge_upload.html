@@ -2,25 +2,36 @@
 
 {% load i18n static %}
 
+{% block extrahead %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static "js/bulk_upload.js" %}"></script>
+{% endblock %}
+
 {% block content %}
     <div id="content-main">
-            <!-- factor out later
-            {% block pretitle %}{% endblock %}
-            {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
-            -->
+        <!-- factor out later
+        {% block pretitle %}{% endblock %}
+        {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
+        -->
 
-            <!-- Template Link -->
-            <h2>
-                <a href="https://docs.google.com/spreadsheets/d/1TNqpbrXUx0hFEGDAHHDrcuf4qQaj7ejDENhO0qpGkU8/edit#gid=0">
-                    Upload Template - export as csv
-                </a>
-            </h2>
-            <br/>
+        <!-- Template Link -->
+        <h3>
+            <a href="https://docs.google.com/spreadsheets/d/1TNqpbrXUx0hFEGDAHHDrcuf4qQaj7ejDENhO0qpGkU8/edit#gid=0">
+                Upload Template - export as csv
+            </a>
+        </h3>
+        <br/>
 
-            <!-- Upload box -->
-            <input type="file" id="csv" accept=".csv" />
+        <!-- Upload box -->
+        <input type="file" id="file-input" accept=".csv"/>
 
-            <br class="clear">
+        <!-- Upload file and preview -->
+        <button id="preview">Preview</button>
+
+        <!-- Confirm additions -->
+        <button id="confirm">Confirm Judge Additions</button>
+
+        <br class="clear">
 
         {% block footer %}<div id="footer"></div>{% endblock %}
     </div>
