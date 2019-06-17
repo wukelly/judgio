@@ -13,16 +13,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from adminplus.sites import AdminSitePlus
+
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import TemplateView
-from judging.admin import judge_upload_site
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+# use adminplus app
+admin.site = AdminSitePlus()
+admin.autodiscover()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # custom admin site
-    path('admin/judges/csv-upload/', judge_upload_site.urls),
     # login endpoint
     path('accounts/', include('django.contrib.auth.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),

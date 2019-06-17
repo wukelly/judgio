@@ -32,7 +32,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'judging.apps.JudgingConfig',
-    'django.contrib.admin',
+    'django.contrib.admin.apps.SimpleAdminConfig',
+    'adminplus',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

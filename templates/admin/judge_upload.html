@@ -5,6 +5,7 @@
 {% block extrahead %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script type="text/javascript" src="{% static "js/bulk_upload.js" %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -26,11 +27,12 @@
         <input type="file" id="file-input" accept=".csv"/>
 
         <!-- Upload file and preview -->
-        <button id="preview">Preview</button>
+        <input type="button" id="preview" value="Preview">
 
         <!-- Confirm additions -->
-        <button id="confirm">Confirm Judge Additions</button>
+        <input type="button" id="confirm" value="Confirm Judge Additions">
 
+        <span id="message"></span>
         <br class="clear">
 
         {% block footer %}<div id="footer"></div>{% endblock %}
