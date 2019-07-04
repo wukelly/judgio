@@ -11,6 +11,7 @@ class Judge(models.Model):
     job_title = models.CharField(max_length=50)
     sponsor_judge = models.BooleanField(default=False)
     checked_in = models.BooleanField(default=False)
+    active = models.BooleanField(default=True)
 
     def name(self):
         return self.first_name + ' ' + self.last_name

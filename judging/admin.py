@@ -8,14 +8,33 @@ import json
 from .models import Judge
 from .forms import JudgeForm
 
+# Filter for active status
+class ActiveFilter(admin.SimpleListFilter):
+    title = 'Active'
+    parameter_name = 'active'
+
+    def lookups(self, request, model_admin):
+        return [
+            ('active', 'Active'),
+            ('not_active', 'Not Active'),
+        ]
+
+    def queryset(self, request, queryset):
+        if self.value() == 'active':
+            return queryset.distinct().filter(active=True)
+        if self.value():
+            return queryset.distinct().filter(active=False)
+
+
 # controls /admin/judging/judge
 class JudgeAdmin(admin.ModelAdmin):
     # override default form
     form = JudgeForm
 
     # Table columns on form
-    list_display = ('name', 'organization', 'job_title', 'email', 'username', 'sponsor_judge', 'checked_in')
+    list_display = ('name', 'organization', 'job_title', 'email', 'username', 'sponsor_judge', 'checked_in', 'active')
     search_fields = ['user__first_name', 'user__last_name', 'organization', 'user__email']
+    list_filter = (ActiveFilter, )
 
 
 # new admin view for judge csv-upload
@@ -35,7 +54,8 @@ def judge_upload_view(request):
                           'organization'    :judge[3],
                           'job_title'       :judge[4],
                           'sponsor_judge'   :True if judge[5]=='TRUE' else False,
-                          'checked_in'      :False
+                          'checked_in'      :False,
+                          'active'          :True
             }
             judge_form = JudgeForm(judge_data)
             if judge_form.is_valid():
