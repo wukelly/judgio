@@ -16,7 +16,8 @@ class JudgeForm(forms.ModelForm):
                   'organization',
                   'job_title',
                   'sponsor_judge',
-                  'checked_in',)
+                  'checked_in',
+                  'active')
 
     # creates username for judges
     # username for judges is firstnamelastname all lowercase

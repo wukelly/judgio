@@ -55,7 +55,7 @@ def judge_upload_view(request):
                           'job_title'       :judge[4],
                           'sponsor_judge'   :True if judge[5]=='TRUE' else False,
                           'checked_in'      :False,
-                          'active'          :True
+                          'active'          :False if judge[6]=='FALSE' else True,
             }
             judge_form = JudgeForm(judge_data)
             if judge_form.is_valid():
