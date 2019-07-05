@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 
 from .models import Judge
 
-
 # new form for judges so we can auto-generate users on save
 class JudgeForm(forms.ModelForm):
 
