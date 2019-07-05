@@ -17,7 +17,7 @@ class JudgeFormTestCase(TestCase):
                                          )
         self.form = JudgeForm()
 
-    def test_JudgeForm_valid(self):
+    def test_judge_form_valid(self):
         form = JudgeForm(data={'first_name': 'Brutus',
                                'last_name': 'Buckeye',
                                'email': 'buckeye.1@osu.edu',
@@ -29,7 +29,7 @@ class JudgeFormTestCase(TestCase):
 
         self.assertTrue(form.is_valid())
 
-    def test_JudgeForm_valid_with_defaults(self):
+    def test_judge_form_valid_with_defaults(self):
         form = JudgeForm(data={'first_name': 'Brutus',
                                'last_name': 'Buckeye',
                                'email': 'buckeye.1@osu.edu',
@@ -38,7 +38,7 @@ class JudgeFormTestCase(TestCase):
 
         self.assertTrue(form.is_valid())
 
-    def test_JudgeForm_invalid(self):
+    def test_judge_form_invalid(self):
         form = JudgeForm(data={'first_name': 'Brutus',
                                  'last_name': 'Buckeye',
                                  'email': 'buckeye.1@osu.edu',
@@ -49,7 +49,7 @@ class JudgeFormTestCase(TestCase):
 
         self.assertFalse(form.is_valid())
 
-    def test_JudgeForm_invalid_email(self):
+    def test_judge_form_invalid_email(self):
         form = JudgeForm(data={'first_name': 'Brutus',
                                 'last_name': 'Buckeye',
                                 'email': 'buckeye.1@osu',
