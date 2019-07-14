@@ -4,8 +4,14 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-    You are logged in as {{ user.username }}.
-    <p><a href="{% url 'logout' %}">logout</a></p>
+    {% if judge %}
+        <h1>Welcome, {{ name }}!</h1>
+        <h2>
+            Thank you for judging HackOHI/O! We are excited to have you see all the amazing projects made this weeked.
+        </h2>
+    {% else %}
+        <h2>Unfortunately, you are currently unauthorized to judge. Please check with an organizer to ensure that you are checked in.</h2>
+    {% endif %}
 {% else %}
     <p>You are not logged in</p>
     <a href="{% url 'login' %}">login</a>
