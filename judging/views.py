@@ -4,7 +4,6 @@ from .models import Judge
 
 def home(request):
     # check if user is checked in judge
-    name = None
     if request.user.is_authenticated:
         judge = Judge.objects.filter(user_id = request.user.id)
         if len(judge):
