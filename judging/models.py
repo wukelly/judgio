@@ -35,6 +35,7 @@ class Judge(models.Model):
 
     def __str__(self):
         return self.name()
+    
 # make migration commands
 # python manage.py makemigrations judging
 # python manage.py sqlmigrate judging 0001

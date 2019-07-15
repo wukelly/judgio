@@ -38,7 +38,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: "POST",
-            url: "/admin/judges/judge-upload/",
+            url: "/admin/judge/judge-upload/",
             data: {
                 "judge_info": JSON.stringify(window.judge_info),
             },
