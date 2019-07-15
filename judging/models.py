@@ -9,6 +9,7 @@ class JudgeQuerySet(models.QuerySet):
             obj.user.delete()
         super(JudgeQuerySet, self).delete(*args, **kwargs)
 
+
 # Add organization and job title atributes to users who are Judges
 class Judge(models.Model):
     objects = JudgeQuerySet.as_manager()
@@ -35,7 +36,7 @@ class Judge(models.Model):
 
     def __str__(self):
         return self.name()
-    
+
 # make migration commands
 # python manage.py makemigrations judging
 # python manage.py sqlmigrate judging 0001

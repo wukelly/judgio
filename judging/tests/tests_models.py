@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
 
-from judging.models import Judge, JudgeQuerySet
+from judging.models import Judge
 
 # Judge and JudgeQuerySet Tests
 class JudgeTestCase(TestCase):
